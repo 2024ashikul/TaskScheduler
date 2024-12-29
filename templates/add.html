@@ -1,14 +1,50 @@
 {% extends 'index.html' %}
 {% block body %}
 <div id="addtasks" align="center" width="60%">
-    <h1>
+    <h2>
         Add Task
-    </h1>
+    </h2>
     <form action="/add" method="post">
-        <input type="text"  name="taskname" id="taskname" placeholder="Please add your task!!!" width="100%">
-        <input type="submit" name="Add Task">
+        <input id ="text" type="text"  name="taskname" id="taskname" placeholder="Please add your task!!!" width="100%" > <br>
+        <input id="submit" type="submit" name="Add Task">
         
     </form>
     </div>
-
+<style>
+    h2{
+        margin: 10px;
+        margin-top: 100px;
+    }
+    #text{
+        width: 1000px;
+        border: 1px solid black;
+        size: 200px;
+        font-size: 20px;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+    #submit{
+        padding-right: 20px;
+        padding-left: 20px;
+        font-size: 25px;
+        background-color: whitesmoke ;
+        border-radius: 10px;
+        
+    }
+    .hover {
+        background-color: aqua;
+    }
+    .default{
+        background-color: black;
+    }
+</style>
+<script>
+    const button = document.getElementById("text");
+    button.addEventListener("mouseover",() => {
+        button.classList.add("hover");
+    });
+    button.addEventListener("mouseout",() => {
+        button.classList.remove("hover");
+    });
+</script>
 {% endblock %}

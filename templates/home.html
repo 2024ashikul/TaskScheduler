@@ -1,22 +1,25 @@
 {% extends 'index.html' %}
 
+{% block title %}
+Tasks
+{% endblock %}
+
 {% block body %}
 
 
 
-<a href="/add"> Add task</a>
-
 {% if empty == False %}
 <div align="center">
 
-    <h2>You have {{ taskcount }} Tasks Scheduled </h2>
+    <h2 id="title">You have {{ taskcount }} Tasks Scheduled        
+         <a  href="/add" style="padding-left: 50px; " > Add more</a>  </h2> 
     <table class="table_task">
         <tr>
-            <td> ID</td>
-            <td>Name of the Task </td>
-            <td> Time to Complete</td>
-            <td> Delete</td>
-            <td>Update</td>
+            <th> ID</th>
+            <th>Name of the Task </th>
+            <th> Time </th>
+            <th> Delete</th>
+            <th>Update</th>
         </tr>
         {% set count = 0 %}
         {% for task in tasks %}
@@ -41,27 +44,36 @@
 
 </div>
 {% else %}
-<div>You have no tasks Scheduled</div>
+<h2 id="title">You have No Tasks Scheduled        
+    <a  href="/add" style="padding-left: 50px; " > Add more</a>  </h2> 
 
 {% endif %}
 <style>
     .table_task {
         width: 80%;
         font-size: larger;
+        
     }
 
-    td {
+    td,th {
         border: 1px solid black;
         padding: 10px;
-
+        border-radius: 10px;
     }
 
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin-top: 80px;
     }
 
     #addtask {
         align-content: center;
     }
+    #title{
+        margin-bottom: 30px;
+        align-items: center;
+        text-align: center;
+    }
+    
 </style>
 {% endblock%}
