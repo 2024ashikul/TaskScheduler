@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+{% block body %}
+<div id="addtasks" align="center" width="60%">
+    <h1>
+        Add Task
+    </h1>
+    <form action="/add" method="post">
+        <input type="text"  name="taskname" id="taskname" placeholder="Please add your task!!!" width="100%">
+        <input type="submit" name="Add Task">
+        
+    </form>
+    </div>
+
+{% endblock %}

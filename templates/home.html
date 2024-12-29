@@ -1,0 +1,67 @@
+{% extends 'index.html' %}
+
+{% block body %}
+
+
+
+<a href="/add"> Add task</a>
+
+{% if empty == False %}
+<div align="center">
+
+    <h2>You have {{ taskcount }} Tasks Scheduled </h2>
+    <table class="table_task">
+        <tr>
+            <td> ID</td>
+            <td>Name of the Task </td>
+            <td> Time to Complete</td>
+            <td> Delete</td>
+            <td>Update</td>
+        </tr>
+        {% set count = 0 %}
+        {% for task in tasks %}
+        {% set count = count + 1 %}
+        <tr>
+            <td> {{ count }} </td>
+            <td> {{ task.tasks }}</td>
+            <td> {{ task.date.date() }}</td>
+
+            <td> <a href="/update/{{ task.id }}">Update</a></td>
+
+            <td>
+                <a href="/delete/{{ task.id }}"> Delete </a>
+
+            </td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+
+</div>
+{% else %}
+<div>You have no tasks Scheduled</div>
+
+{% endif %}
+<style>
+    .table_task {
+        width: 80%;
+        font-size: larger;
+    }
+
+    td {
+        border: 1px solid black;
+        padding: 10px;
+
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    #addtask {
+        align-content: center;
+    }
+</style>
+{% endblock%}
